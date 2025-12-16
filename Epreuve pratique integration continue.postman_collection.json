@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "28778303-2288-4d13-b8ce-c6788737e12b",
+		"name": "Epreuve pratique integration continue",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_BASE_URL}}",
+					"host": [
+						"{{API_BASE_URL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"example task\",\r\n    \"description\": \"description\",\r\n    \"status\": \"To description\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_BASE_URL}}",
+					"host": [
+						"{{API_BASE_URL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{API_BASE_URL}}/673aeccdf71b8318088abdce",
+					"host": [
+						"{{API_BASE_URL}}"
+					],
+					"path": [
+						"673aeccdf71b8318088abdce"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_BASE_URL",
+			"value": "localhost:5000/api/tasks/",
+			"type": "default"
+		}
+	]
+}
