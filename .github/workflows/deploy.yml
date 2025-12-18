@@ -27,3 +27,32 @@ jobs:
 
       - name: Run unit tests
         run : npm run test:unit
+
+      - name: Run integration tests
+        run: npm run test:integration
+
+      - name: Run end to end tests
+        run: npm run test:e2e
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to VPS using SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_KEY }}
+          port: 10000
+
+          script: |
+            cd /var/www/mabest1/fisa2-cicd/back/
+
+            git pull origin main
+
+            npm install --production
+
+            pm2 restart mabest1API
