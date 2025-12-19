@@ -60,6 +60,7 @@ Ici, nous allons simuler un cycle de vie complet d'une tâche, pour s'assurer qu
 ## Installation locale
 
 cd backend
-npm install
-npm start
 
+npm install
+
+npm start
